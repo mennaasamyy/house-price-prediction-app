@@ -229,12 +229,16 @@ The frontend includes:
 |---|---|---|
 | `VITE_API_BASE_URL` | The address of the FastAPI backend used by the React frontend | `http://localhost:8000` |
 
-The frontend uses:
+Create the frontend environment file by copying the example:
 
-```text
-frontend/.env
+```cmd
+copy .env.example .env
 
----
+The `.env` file should contain:
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
 
 ## Running the Backend Locally
 
