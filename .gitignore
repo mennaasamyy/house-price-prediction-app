@@ -1,0 +1,33 @@
+# Python virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+backend/.env
+frontend/.env
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Large/raw data
+notebooks/data/house_prices.csv
+
+# Duplicate exported model
+notebooks/house_price.pkl
