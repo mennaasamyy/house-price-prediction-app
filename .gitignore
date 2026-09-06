@@ -31,3 +31,5 @@ notebooks/data/house_prices.csv
 
 # Duplicate exported model
 notebooks/house_price.pkl
+
+*.log

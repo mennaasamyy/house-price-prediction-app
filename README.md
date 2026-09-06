@@ -177,6 +177,24 @@ FastAPI also provides interactive API documentation at:
 http://localhost:8000/docs
 ```
 
+### Example Prediction Using curl
+
+```bash
+curl -X POST "http://localhost:8000/predict" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "carpet_area_sqft": 1200,
+    "floor_num": 3,
+    "bathroom": 2,
+    "balcony": 1,
+    "location": "other",
+    "furnishing": "Furnished",
+    "transaction": "Resale",
+    "ownership": "Freehold",
+    "facing": "East"
+  }'
+```
+
 ---
 
 ## Frontend
@@ -203,29 +221,18 @@ The frontend includes:
 
 ---
 
-## Environment Configuration
+## Environment Variables
 
-The frontend uses a Vite environment variable to locate the backend API.
+### Frontend
 
-Create:
+| Variable | Description | Example |
+|---|---|---|
+| `VITE_API_BASE_URL` | The address of the FastAPI backend used by the React frontend | `http://localhost:8000` |
+
+The frontend uses:
 
 ```text
 frontend/.env
-```
-
-with:
-
-```env
-VITE_API_BASE_URL=http://localhost:8000
-```
-
-An example configuration is included in:
-
-```text
-frontend/.env.example
-```
-
-The real `.env` file is excluded from Git.
 
 ---
 
@@ -343,16 +350,32 @@ Current test result:
 
 ## Dataset
 
-The original house-price dataset is not stored directly in this GitHub repository because the raw CSV file exceeds GitHub's standard individual file size limit.
+This project uses the **House Price** dataset available on Kaggle.
 
-The data preprocessing and modeling workflow can be reviewed in:
+Dataset source:
 
-```text
-notebooks/house_price_model.ipynb
-```
+https://www.kaggle.com/datasets/juhibhojani/house-price
+
+The raw dataset is not included in this GitHub repository because the CSV file is larger than GitHub's recommended file-size limit.
+
+### Download Instructions
+
+1. Open the Kaggle dataset page:
+
+   https://www.kaggle.com/datasets/juhibhojani/house-price
+
+2. Sign in to Kaggle if required.
+
+3. Click **Download** to download the dataset.
+
+4. Extract the downloaded ZIP file.
+
+5. Inside this project, create the following folder if it does not already exist:
+
+   ```text
+   notebooks/data/
 
 ---
-
 ## Technologies Used
 
 ### Machine Learning
@@ -417,6 +440,16 @@ Formatted Result in Frontend
 ```
 
 ---
+## Screenshots
+
+### House Price Prediction Form
+
+![House Price Prediction Form](screenshots/app-form.png)
+
+### Prediction Result
+
+![Prediction Result](screenshots/app-prediction.png)
+
 
 ## Author
 
